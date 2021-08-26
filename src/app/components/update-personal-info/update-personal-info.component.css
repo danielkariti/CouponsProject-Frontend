@@ -1,0 +1,54 @@
+body{
+    background:#eee;
+    }
+    .separator {
+        border-right: 1px solid #dfdfe0; 
+    }
+
+    .input-group {
+        margin-bottom:10px; 
+    }
+    
+
+    .panel-title {
+        padding-bottom: 40px;
+    }
+
+    button {
+        width: 200px;
+        height: 40px;
+        background-color:  #5779d890;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover{
+        margin: 0px !important;
+        margin-bottom: 10px !important;
+        background-color:  #5779d840;
+        color: #040c13;
+     }
+
+
+     label {
+        width: 70px;
+        clear:left;
+        text-align:left;
+    }
+    
+    h6, .back {
+        color: black;
+        font-size: 14px;
+        margin: 10px 0 !important;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .validations {
+        display: flex;
+        justify-content: center;
+        color: crimson;
+        font-size: 12px;
+    }
+    

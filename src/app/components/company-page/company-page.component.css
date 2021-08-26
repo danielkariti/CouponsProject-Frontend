@@ -1,0 +1,72 @@
+body {
+    background-color: #dedede;
+}
+
+.content {
+    margin-top: 70px;
+    padding: 0 30px;
+}
+.card-body {
+    box-shadow: 0 30px 40px rgba(0.1,0.1,0.1,0.1);
+    background-color: #ffffff60;
+    
+}
+
+.statistics:hover {
+    background-color: rgba(0,0,0,.2);
+    cursor: pointer;
+}
+
+
+.card-header{
+    background: linear-gradient(to right, #4AC29A80,#BDFFF370);
+}
+.action-button {
+    border:none;
+    background-color: transparent;
+}
+.fa-pencil-alt{
+    color: #605C3C;
+}
+
+.change-password, .fa-lock{
+    color: #000000;
+    background-color: transparent !important;
+    border: none !important;
+}
+.pt-3-half {
+    padding-top: 1.4rem;
+}
+.row {
+    justify-content: center;
+}
+
+.image-box { 
+    margin-top : -20px !important;
+}
+
+
+.modal-footer {
+    justify-content: center;
+}
+
+.table-sort {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: dodgerblue;
+}
+
+.table-sort:active {
+    outline: none;
+}
+
+.table-editable > div > button {
+    margin-bottom: 15px;
+}
+
+@media(min-width:992px) {
+    .wrapper {
+    	padding-left: 50px;
+    }
+}

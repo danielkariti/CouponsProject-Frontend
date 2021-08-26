@@ -1,0 +1,45 @@
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="col-xl-12 col-sm-9">
+    <!-- Editable table -->
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Transactions
+    </h3>
+    <div class="card-body table-wrapper-scroll-y my-custom-scrollbar">
+        <div id="table" class="table-editable">
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">Customer</th>
+                        <th class="text-center">Coupon</th>
+                        <th class="text-center">Date</th>
+                        <th class="text-center">Amount</th>
+                        <th class="text-center">Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-data-row" *ngFor="let currentPurchase of purchases">
+
+                        <td class="pt-3-half">
+                            {{ currentPurchase?.customer.name }}
+                        </td>
+                        <td class="pt-3-half">
+                            {{ currentPurchase?.coupon.title }}
+                        </td>
+                        <td class="pt-3-half">
+                            {{ currentPurchase?.purchaseDate }}
+                        </td>
+                        <td class="pt-3-half">
+                            {{ currentPurchase?.amount }}
+                        </td>
+                        <td class="pt-3-half">
+                            ${{ currentPurchase?.amount*currentPurchase?.coupon.price }}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Editable table -->
+</div>

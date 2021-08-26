@@ -1,0 +1,151 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700%7CJosefin+Sans:400,600,700,400italic,600italic);
+
+.card{
+    position: relative;
+    float:left;
+    margin: 20px;
+    width: 13rem;
+    box-shadow: 0 30px 40px rgba(0,0,0,0.06);
+    border-radius: 10px;
+    height: 443.07px;
+
+}
+
+.card-link{
+   margin: 0px !important;
+   margin-bottom: 10px !important;
+   background-color: #1CB5E090;
+   color: #040c13;
+   border-radius: 5px;
+   border-color: #1CB5E0;
+
+
+}
+
+.card-link:hover{
+    margin: 0px !important;
+    margin-bottom: 10px !important;
+    background-color:#1CB5E030;
+    border-color: #1CB5E040;
+    color: #040c13;
+ }
+
+ .card-link:active{
+  background-color: #1CB5E040 !important;
+  border-color: #1CB5E040 !important;
+  color: #040c13 !important;
+  
+ }
+
+.card:hover{
+    transform: scale(1.07);
+}
+.modal-header{
+    padding: 0.2rem 0.2rem !important;
+}
+.modal-title{
+    font-family: 'josefin sans';
+    font-weight: 700;
+    color: #000;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+}
+
+.modal-content{
+    width: 400px;
+    height: 700px;
+}
+.modal-body{
+    height: 150px;
+}
+
+.modal-img{
+    width: 399px;
+    height: 250px;
+}
+
+.modal-header .close{
+    padding: 0;
+    margin: 0;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: row;
+  }
+.quantity input {
+    -webkit-appearance: none;
+    border: none;
+    text-align: center;
+    width: 32px;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+.total-price {
+    padding-top: 27px;
+    text-align: left;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+  }
+
+.minus-btn img {
+    margin-bottom: 3px;
+  }
+.plus-btn img {
+    margin-top: 2px;
+  }
+.quantity > button {
+    width: 30px;
+    height: 30px;
+    background-color: #E1E8EE;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+
+.price {
+    margin-right: 20px;
+  }
+
+hr{
+    margin: 5px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+.modal-footer {
+  justify-content: center;
+  }
+
+.mb-3 {
+  margin-left: 20px;
+  width: 300px;
+}
+
+label {
+  width: 115px;
+}
+
+#max-price {
+  width: 105px;
+  border: none;
+  text-align: center;
+}
+
+.button-card {
+  height: 1rem;
+}
+
+.card-title-area{
+  flex: 0 0 auto;
+  height: 60px !important;
+  padding-top: 5px;
+}
+
+.capitalize { 
+  text-transform: capitalize;
+}

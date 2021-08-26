@@ -1,0 +1,17 @@
+.fab {
+    padding-top: 6px;
+    padding-right: 10px;
+    font-size: 2em;
+}
+
+.facebook {
+    color: #3a589a;
+}
+
+.twitter {
+   color: #4099ff;
+}
+
+.github {
+    color : #24292e;
+}

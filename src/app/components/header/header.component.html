@@ -1,0 +1,12 @@
+<div class="hero">
+	<div class="hero-inner">
+		<a href="http://localhost:4200/home"><h1 class="text-light title font-2">Coupon<span>ify</span></h1></a>
+	</div>
+</div>
+<div>
+	<nav class='sign-out fas fa-sign-out-alt' *ngIf="usersService.isLoggedIn">
+		<div class="group">
+			<input type="submit" class="button" (click)="logout()" value="Sign Out">
+		</div>
+	</nav>
+</div>

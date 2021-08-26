@@ -1,0 +1,37 @@
+<body>
+  <div class="sidebar">
+    <!-- <header>Menu</header> -->
+    <a href="http://localhost:4200/home">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="http://localhost:4200/login" *ngIf="!usersService.isLoggedIn">
+      <i class="fas fa-sign-in-alt"></i>
+      <span>Login</span>
+    </a>
+    <a href="http://localhost:4200/register" *ngIf="!usersService.isLoggedIn">
+      <i class="fas fa-user-plus"></i>
+      <span>Register</span>
+    </a>
+    <a href="http://localhost:4200/profile" class="active" *ngIf="usersService.isLoggedIn && usersService.isUserCustomer">
+      <i class="far fa-user"></i>
+      <span>Profile</span>
+    </a>
+    <a href="http://localhost:4200/panel" *ngIf="usersService.isLoggedIn && usersService.isUserCompany">
+      <i class="fas fa-poo"></i>
+      <span>Panel</span>
+    </a>
+    <a href="http://localhost:4200/admin" *ngIf="usersService.isUserAdmin">
+      <i class="fas fa-poo"></i>
+      <span>Admin</span>
+    </a>
+    <a href="http://localhost:4200/about">
+      <i class="far fa-question-circle"></i>
+      <span>About</span>
+    </a>
+    <a href="http://localhost:4200/contact">
+      <i class="far fa-envelope"></i>
+      <span>Contact</span>
+    </a>
+  </div>
+</body>

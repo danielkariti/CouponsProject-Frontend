@@ -1,0 +1,52 @@
+<div class="login-wrapper">
+	<div class="container" id="container">
+		<div class="form-container sign-in-container">
+			<form action="#">
+				<h1>Sign Up</h1>
+				<p>Fill out the form below</p>
+
+				<div class="group">
+					<input #usernameInput="ngModel" id="user" type="text" required class="input" placeholder="Username"
+						name="username" [(ngModel)]="customer.user.username">
+					<span class="validations" *ngIf="usernameInput.errors?.required && usernameInput.touched"> Enter a username<br></span>
+				</div>
+
+				<div class="group">
+					<input #passwordInput="ngModel" required minlength="6" id="pass" type="password" class="input"
+						placeholder="Password" name="password" data-type="password" [(ngModel)]="customer.user.password">
+					<span class="validations" *ngIf="passwordInput.errors?.minlength && passwordInput.touched">Password must contain at least 6 characters.<br></span>
+					<span class="validations" *ngIf="passwordInput.errors?.required && passwordInput.touched"> A Password is required<br></span>
+				</div>
+
+				<div class="group">
+					<input #emailInput="ngModel" id="pass" type="email" required class="input" placeholder="Email"
+						name="email" [(ngModel)]="customer.email">
+					<span class="validations" *ngIf="emailInput.errors?.required && emailInput.touched"> Enter your email address<br></span>
+				</div>
+
+				<div class="group">
+					<input #fullNameInput="ngModel" id="pass" type="text" required class="input" placeholder="Full Name"
+						name="full-name" [(ngModel)]="customer.name">
+					<span class="validations" *ngIf="fullNameInput.errors?.required && fullNameInput.touched"> Enter your full name<br></span>
+				</div>
+
+				<div class="group">
+					<input #ageInput="ngModel" id="pass" type="text" required class="input" placeholder="Age" name="age"
+						[(ngModel)]="customer.age">
+					<span class="validations" *ngIf="ageInput.errors?.required && ageInput.touched"> Enter your age<br></span>
+				</div>
+
+				<button (click)="register()">Create Account</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<h1>Hello, Friend!</h1>
+					<p>Already have an account? Click below to access your account!</p>
+					<button class="ghost" id="signUp"><a href="http://localhost:4200/login">Sign In</a></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

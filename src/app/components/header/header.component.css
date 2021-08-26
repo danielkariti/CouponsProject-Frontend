@@ -1,0 +1,59 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Josefin+Sans:400,600,700,400italic,600italic);
+
+body{
+    font-size: 16px;
+    
+}
+
+.hero{
+	height: 100vh;
+    width: 100%;
+	position: absolute;
+}
+
+.hero-inner{
+	display: table;
+    width: 100%;
+}
+
+.hero-inner > a {
+    text-decoration: none;
+}
+
+.font-2{
+	font-family: 'josefin sans';
+    font-weight: 700;
+    color: #000;
+}
+.title{ 
+    letter-spacing: .3em;
+    text-transform: uppercase;
+ }
+
+ h1 {
+    color: #300 !important;
+ }
+
+nav {
+    margin-right: 5px;
+    display: flex;
+    position:relative;
+    justify-content: flex-end;
+    z-index: 1;
+
+}
+
+nav > a {
+    color: black;
+}
+
+span{
+    color: #1CB5E0 !important;
+}
+
+
+.button{
+    border:none;
+    text-decoration: underline;
+    font-weight: 600;
+}

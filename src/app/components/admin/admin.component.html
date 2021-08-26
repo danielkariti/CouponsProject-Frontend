@@ -1,0 +1,102 @@
+<div class="admin">
+    <div class="parent">
+        <div class="wrapper">
+            <div class="row">
+                <div class="container">
+                    <div class="row mt-3 pt-3" style="background-color: #eeeeee">
+                        <div class="col-md-6">
+                            <!-- Card group -->
+                            <a routerLink="/admin/customer-list" routerLinkActive="active">
+                                <div class="card-group">
+                                    <!-- Card -->
+                                    <div class="card mb-4 coupons">
+                                        <!-- Card content -->
+                                        <div class="card-body statistics">
+                                            <!-- Title -->
+                                            <h6 class="card-title">Customers</h6>
+                                            <!-- Text -->
+                                            <p class="card-text green-text"><i class="fas fa-users fa-2x"></i><span
+                                                    class="ml-2" style="font-size: 30px;"></span></p>
+                                        </div>
+                                        <!-- Card content -->
+                                    </div>
+                                    <!-- Card -->
+                                </div>
+                                <!-- Card group -->
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <!-- Card group -->
+                            <a routerLink="/admin/company-list" routerLinkActive="active">
+                                <div class="card-group">
+                                    <!-- Card -->
+                                    <div class="card mb-4 employees">
+                                        <!-- Card content -->
+                                        <div class="card-body statistics">
+                                            <!-- Title -->
+                                            <h6 class="card-title">Companies</h6>
+                                            <!-- Text -->
+                                            <p class="card-text green-text"><i class="fas fa-building fa-2x"></i><span
+                                                    class="ml-2" style="font-size: 30px;"></span></p>
+                                        </div>
+                                        <!-- Card content -->
+                                    </div>
+                                    <!-- Card -->
+                                </div>
+                                <!-- Card group -->
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <!-- Card group -->
+                            <a routerLink="/admin/purchase-list" routerLinkActive="active">
+                                <div class="card-group">
+                                    <!-- Card -->
+                                    <div class="card mb-4 employees">
+                                        <!-- Card content -->
+                                        <div class="card-body statistics">
+                                            <!-- Title -->
+                                            <h6 class="card-title">Transactions</h6>
+                                            <!-- Text -->
+                                            <p class="card-text green-text"><i class="far fa-credit-card fa-2x"></i><span
+                                                    class="ml-2" style="font-size: 30px;"></span></p>
+                                        </div>
+                                        <!-- Card content -->
+                                    </div>
+                                    <!-- Card -->
+                                </div>
+                                <!-- Card group -->
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <!-- Card group -->
+                            <a routerLink="/change-password" routerLinkActive="active">
+                                <div class="card-group">
+                                    <!-- Card -->
+                                    <div class="card mb-4 employees">
+                                        <!-- Card content -->
+                                        <div class="card-body statistics">
+                                            <!-- Title -->
+                                            <h6 class="card-title" >Change Password</h6>
+                                            <!-- Text -->
+                                            <p class="card-text green-text"><i class="fas fa-lock fa-2x"></i><span
+                                                    class="ml-2" style="font-size: 30px;"></span></p>
+                                        </div>
+                                        <!-- Card content -->
+                                    </div>
+                                    <!-- Card -->
+                                </div>
+                                <!-- Card group -->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="child">
+            <router-outlet></router-outlet>
+        </div>
+    </div>

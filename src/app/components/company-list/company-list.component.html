@@ -1,0 +1,127 @@
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="col-xl-12 col-sm-9">
+    <!-- Editable table -->
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Companies
+    </h3>
+    <div class="card-body table-wrapper-scroll-y my-custom-scrollbar">
+        <div id="table" class="table-editable">
+            <span class="table-add float-right mb-3 mr-2"><a href="http://localhost:4200/create-company"
+                    class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">Company Name</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Phone Number</th>
+                        <th class="text-center">Address</th>
+                        <th class="text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-data-row" *ngFor="let currentCompany of companies">
+
+                        <td class="pt-3-half" (click)="showCompanyInfo(currentCompany.id)">
+                            {{ currentCompany?.companyName }}
+                        </td>
+                        <td class="pt-3-half" (click)="showCompanyInfo(currentCompany.id)">
+                            {{ currentCompany?.email }}
+                        </td>
+                        <td class="pt-3-half" (click)="showCompanyInfo(currentCompany.id)">
+                            {{ currentCompany?.phoneNumber }}
+                        </td>
+                        <td class="pt-3-half" (click)="showCompanyInfo(currentCompany.id)">
+                            {{ currentCompany?.address }}
+                        </td>
+
+                        <td>
+                            <button class="action-button" data-toggle="modal" data-target="#myModal"><i
+                                    class="fas fa-pencil-alt fa-lg" aria-hidden="true"
+                                    (click)=[(showCompany(currentCompany))]></i></button>
+                            <button class="action-button"><i class="fas fa-trash-alt fa-lg" aria-hidden="true"
+                                    (click)="removeCompany(currentCompany.id)"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Editable table -->
+</div>
+
+<div class="container">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h3 class="modal-title w-100 ml-5">Update Company</h3>
+                    <button type="button" class="close fas fa-times" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!-- <div class="image-box"> <br>
+                            <img alt="" class="img-thumbnail" src="{{this.updatedCompany?.image}}"
+                                alt="Card image cap"
+                                onerror="this.src='https://icon2.cleanpng.com/20180605/ijl/kisspng-computer-icons-image-file-formats-no-image-5b16ff0d2414b5.0787389815282337411478.jpg'"
+                                width="399px" height="150px">
+                        </div> -->
+                        <div style="margin-top:40px;">
+                            <div class="form-group">
+                                <div class="panel-heading">
+                                </div>
+                                <div style="text-align: left;">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label class="input-group-text" for="companyName">Company Name</label>
+                                            <input #companyNameInput="ngModel" required type="text" id="companyName" class="form-control" placeholder="Company Name"
+                                                [(ngModel)]="this.updatedCompany.companyName">
+                                        </div>
+                                        <span class="validations" *ngIf="companyNameInput.errors?.required && companyNameInput.touched"> Enter company name<br></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label class="input-group-text" for="name">Email</label>
+                                            <input #emailInput="ngModel" required class="form-control" id="email" type="email" placeholder="Email"
+                                            [(ngModel)]="this.updatedCompany.email">
+                                        </div>
+                                        <span class="validations" *ngIf="emailInput.errors?.required && emailInput.touched"> Enter company email address<br></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label class="input-group-text" for="phoneNumber">Phone Number</label>
+                                            <input #phoneNumberInput="ngModel" required type="text" id="phoneNumber" class="form-control" placeholder="Phone Number"
+                                            [(ngModel)]="this.updatedCompany.phoneNumber">
+                                        </div>
+                                        <span class="validations" *ngIf="phoneNumberInput.errors?.required && phoneNumberInput.touched"> Enter company phone number<br></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <label class="input-group-text" for="address">Address</label>
+                                            <input #addressInput="ngModel" required type="text" id="address" class="form-control" placeholder="Address"
+                                            [(ngModel)]="this.updatedCompany.address" >
+                                        </div>
+                                        <span class="validations" *ngIf="addressInput.errors?.required && addressInput.touched"> Enter company address<br></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <div class="save-button">
+                        <button type="submit" class="btn btn-default"
+                            (click)="updateCompany(this.updatedCompany)">Save Changes</button>
+                    </div>
+                    <button type="button" class="btn btn-default" (click)="leaveForm()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+
+<div class="login-wrapper">
+	<div class="container" id="container">
+		<div class="form-container sign-in-container">
+            <div class="form-group">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-th"></span>
+                        Create Company
+                    </h3>
+                </div>
+                <div style="text-align: left;">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input #companyNameInput="ngModel" class="form-control" required type="text" placeholder="Company Name"
+                                [(ngModel)]="company.companyName">
+                        </div>
+                        <span class="validations" *ngIf="companyNameInput.errors?.required && companyNameInput.touched"> Enter a company name<br></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input #emailInput="ngModel" class="form-control" required type="email" placeholder="Email"
+                                [(ngModel)]="company.email">
+                        </div>
+                        <span class="validations" *ngIf="emailInput.errors?.required && emailInput.touched"> Enter company's email address<br></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input #phoneNumberInput="ngModel" type="text" class="form-control" required placeholder="Phone Number"
+                                [(ngModel)]="company.phoneNumber">
+                        </div>
+                        <span class="validations" *ngIf="phoneNumberInput.errors?.required && phoneNumberInput.touched"> Enter company's phone number<br></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input #addressInput="ngModel" type="text" class="form-control" required placeholder="Address"
+                                [(ngModel)]="company.address">
+                        </div>
+                        <span class="validations" *ngIf="addressInput.errors?.required && addressInput.touched"> Enter company's address<br></span>
+                    </div>
+                </div>
+                <p>*All fields are required</p>
+                <div class="save-button">
+                    <button type="submit" (click)="createCompany()">Create Company</button>
+                </div>
+                <a class="back" href="http://localhost:4200/admin/company-list"><h6>Take me back</h6></a>
+            </div>
+        </div>
+	</div>
+</div>

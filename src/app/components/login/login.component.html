@@ -1,0 +1,78 @@
+<div class="login-wrapper">
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Sign in</h1>
+                <br>
+                <input type="email" placeholder="Username" name="username" [(ngModel)]="userLoginDetails.username" />
+                <input type="password" placeholder="Password" name="password" [(ngModel)]= "userLoginDetails.password"/>
+                <br>
+                <button (click)=login()>Sign In</button>
+                <hr>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                        <!-- change to register page here -->
+                    <h1>Hey! New Here?</h1>
+                    <p>Create a new account for FREE and find new HOT deals with all the brands you love!</p>
+                    <button class="ghost" id="signUp"><a href="http://localhost:4200/register">Create Account</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="login-wrap">
+    <div class="login-html">
+        <h1 id='tab-1' name="tab" class="sign-in">Sign In</h1>
+        <form #loginForm="ngForm">
+            <div class="login-form">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <input #userNameInput="ngModel" id="user" type="text" placeholder="Username" name="username"
+                            required class="input" [(ngModel)]="userLoginDetails.username">
+                        <span *ngIf="userNameInput.errors?.required && !userNameInput.pristine">Invalid
+                            username</span>
+                        <span *ngIf="userNameInput.errors?.pattern">Failed the regular expression<br></span>
+                        <span *ngIf="!userNameInput.pristine">Not pristine is activated without the need to lose focus<br></span>
+                        <span *ngIf="userNameInput.touched">touched is activated when the focus is lost<br></span>
+                        <span *ngIf="userNameInput.errors?.required">Required - means the field should not be empty<br></span>
+                        <span *ngIf="userNameInput.errors?.required && userNameInput.touched">Missing - username (you touched the userName field yet left it empty)<br></span>
+                        <span *ngIf="userNameInput.errors?.pattern && userNameInput.touched">Name must be capitalized(you touched the userName field yet left failing the regex pattern)<br></span>
+                    </div>
+                    <div class="group">
+                        <input #passwordInput="ngModel" id="pass" type="password" placeholder="Password" name="password"
+                            required class="input" data-type="password" [(ngModel)]="userLoginDetails.password">
+                    </div>
+                    <div class="group">
+                        <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" [disabled]="loginForm.form.invalid" (click)="login()"
+                            value="Sign In">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="sign-up">
+                        <p>Don't have an account?<a href="http://localhost:4200/register"> Sign up</a></p>
+                    </div>
+                    <div class="foot-lnk">
+                        <div class="connect">Connect with us:</div>
+                        <a href="https://www.facebook.com/shlomi.kariti1" target="_blank" class="facebook">
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://twitter.com/shlomi_kariti" target="_blank" class="twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://github.com/ShlomiKariti" target="_blank" class="github">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> -->

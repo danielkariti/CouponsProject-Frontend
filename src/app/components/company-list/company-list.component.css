@@ -1,0 +1,92 @@
+body {
+    background-color: #dedede;
+}
+
+.content {
+    margin-top: 70px;
+    padding: 0 30px;
+}
+.card-body {
+    box-shadow: 0 30px 40px rgba(0.1,0.1,0.1,0.1);
+    background-color: #ffffff60;
+    
+}
+
+.statistics:hover {
+    transform: scale(1.02);
+}
+
+.card-header{
+    background: linear-gradient(to right, #4AC29A80,#BDFFF370);
+}
+.action-button {
+    border:none;
+    background-color: transparent;
+    outline: none;
+}
+.fa-pencil-alt{
+    color: #605C3C;
+}
+
+.change-password, .fa-lock{
+    color: #000000;
+    background-color: transparent !important;
+    border: none !important;
+}
+.pt-3-half {
+    padding-top: 1.4rem;
+}
+.row {
+    justify-content: center;
+}
+
+.image-box { 
+    margin-top : -20px !important;
+}
+
+.table-data-row:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,0,.2);
+}
+
+
+.modal-footer {
+    justify-content: center;
+    }
+
+@media(min-width:992px) {
+    .wrapper {
+    	padding-left: 50px;
+    }
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 400px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+}
+
+label {
+    width: 130px;
+    clear:left;
+    text-align:left;
+}
+
+h6, .back {
+    color: black;
+    font-size: 14px;
+    margin: 10px 0 !important;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.validations {
+    display: flex;
+    justify-content: center;
+    color: crimson;
+    font-size: 12px;
+}
+

@@ -1,0 +1,90 @@
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text max-price" for="max-price">Filter by price</label>
+      <input type="text" id="max-price" [(ngModel)]="maxPrice">
+    </div>
+  </div>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend"> 
+      <label class="input-group-text" for="inputGroupSelect01">Category</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="category">
+      <option value="default" selected>Choose...</option>
+      <option value="FOOD">Food</option>
+      <option value="ELECTRICITY">Electricity</option>
+      <option value="VACATION">Vacation</option>
+      <option value="FASHION">Fashion</option>
+      <option value="ENTERTAINMENT">Entertainment</option>
+      <option value="SPORTS">Sports</option>
+      <option value="HEALTH">Health</option>
+    </select>
+  </div>
+
+<div class="card"  *ngFor="let currentCoupon of coupons|maxPricePipe :maxPrice|categoryPipe :category" (click)=[(showCoupon(currentCoupon))] data-toggle="modal"
+    data-target="#myModal">
+    <img class="card-img-top" src="{{ currentCoupon.coupon.image }}" alt="Card image cap" 
+    onerror="this.src='https://icon2.cleanpng.com/20180605/ijl/kisspng-computer-icons-image-file-formats-no-image-5b16ff0d2414b5.0787389815282337411478.jpg'">
+    <div class="card-body card-title-area">
+        <h5 class="card-title">{{ currentCoupon.coupon.title }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Price: ${{ currentCoupon.coupon.price }}</li>
+        <li class="list-group-item" *ngIf="currentCoupon.coupon.couponStock > 0">Amount: {{ currentCoupon.coupon.couponStock }}</li>
+        <li class="list-group-item" *ngIf= "currentCoupon.coupon.couponStock == 0"> <img src="https://image.freepik.com/free-vector/banner-sticker-red-ribbon-sold-out-vector_19426-48.jpg" width="170px" height="60px" alt="OUT OF STOCK"></li>
+        
+    </ul>
+    <div class="card-body button-card">
+        <button class="card-link btn btn-primary btn-sm btn-block btn-leading-ficon add-to-cart-button">More Info</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h5 class="modal-title w-100">{{ this.displayedCoupon?.coupon.title }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" (click)=[(showCoupons())]>&times;</button>
+                </div>
+                <img class="modal-img" src="{{ this.displayedCoupon?.coupon.image }}" alt="Card image cap"
+                 onerror="this.src='https://icon2.cleanpng.com/20180605/ijl/kisspng-computer-icons-image-file-formats-no-image-5b16ff0d2414b5.0787389815282337411478.jpg'">
+                 <hr>
+                <div class="modal-body">
+                    <div style="text-align: left;">
+                        <p>{{ this.displayedCoupon?.coupon.description }}</p>
+                        <hr>
+
+                        <div class="quantity">
+                            <p class="price">Price: ${{(this.displayedCoupon?.coupon.price*this.amount).toFixed(2)}}
+                            </p>
+                            <button class="plus-btn fas fa-plus" type="button" (click)=[(plusButton())] name="button">
+                            </button>
+                            <input type="text" READONLY name="name" id="amount" disabled value={{amount}}>
+                            <button class="minus-btn fas fa-minus" type="button" (click)=[(minusButton())]
+                                name="button">
+                            </button>
+                        </div>
+                        <hr>
+                        <p>Amount : {{ this.displayedCoupon?.coupon.couponStock }}</p>
+                        <hr>
+                        <p>Expiration Date: {{ this.displayedCoupon?.coupon.expirationDate }}</p>
+                        <hr>
+                        <p class="capitalize">Category: {{ this.displayedCoupon?.coupon.category.toLowerCase()}}</p>
+                        
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" (click)=[(purchaseCoupon())] class="btn btn-default purchase"
+                        data-dismiss="modal">Purchase</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"
+                        (click)=[(showCoupons())]>Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

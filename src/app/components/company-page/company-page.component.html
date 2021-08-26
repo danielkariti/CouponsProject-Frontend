@@ -1,0 +1,119 @@
+<div class="wrapper">
+
+    <div class="row">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="mt-5 font-weight-bold text-center">Company logo</h2>
+                </div>
+            </div>
+            <div class="row mt-3 pt-3" style="background-color: #eeeeee">
+                <div class="col-md-6">
+                    <!-- Card group -->
+                    <div class="card-group">
+                        <!-- Card -->
+                        <div class="card mb-4 coupons" (click)="showCompanyUsers()">
+                            <!-- Card content -->
+                            <div class="card-body statistics">
+                                <!-- Title -->
+                                <h6 class="card-title">Employees:</h6>
+                                <!-- Text -->
+                                <p class="card-text green-text"><i class="fas fa-users fa-2x"></i><span
+                                    class="ml-2" style="font-size: 30px;">{{this.users?.length}}</span></p>
+                            </div>
+                            <!-- Card content -->
+                        </div>
+                        <!-- Card -->
+
+                    </div>
+                    <!-- Card group -->
+                </div>
+                <div class="col-md-6">
+                    <!-- Card group -->
+                    <div class="card-group">
+                        <!-- Card -->
+                        <div class="card mb-4 employees" (click)="showCompanyCoupons()">
+                            <!-- Card content -->
+                            <div class="card-body statistics">
+                                <!-- Title -->
+                                
+                                <h6 class="card-title">Coupons:</h6>
+                           
+                                <!-- Text -->
+                                <p class="card-text green-text"><i class="fas fa-receipt fa-2x"></i><span
+                                        class="ml-2" style="font-size: 30px;">{{this.coupons?.length}}</span></p>
+                            </div>
+                            <!-- Card content -->
+                        </div>
+                        <!-- Card -->
+                    </div>
+                    <!-- Card group -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-9" *ngIf="this.showUsers && !this.showCoupons">
+            <!-- Editable table -->
+            <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Employees
+            </h3>
+            <div class="card-body">
+                <div id="table" class="table-editable">
+                    <span class="table-add float-right mb-3 mr-2"><a href="http://localhost:4200/create-user"
+                            class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Username</th>
+                                <th class="text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let currentUser of users">
+                                <td class="pt-3-half" contenteditable="true">
+                                    {{ currentUser?.username }}</td>
+                                <td>
+                                    <button class="action-button"><i class="fas fa-trash-alt fa-lg" aria-hidden="true"
+                                            (click)="removeUser(currentUser?.id)"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Editable table -->
+        </div>
+
+        <div class="col-xs-12 col-sm-9"  *ngIf="!this.showUsers && this.showCoupons">
+            <!-- Editable table -->
+            <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Coupons
+            </h3>
+            <div class="card-body">
+                <div id="table" class="table-editable">
+                    <div class="float-right mr-3">
+                        <button class="table-sort" (click)="sortByPrice()"><i class="fas fa-sort fa-2x"
+                                    aria-hidden="true"></i></button>
+                    </div>
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Title</th>
+                                <th class="text-center">Price</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let currentCoupon of coupons">
+                                <td class="pt-3-half">
+                                    {{ currentCoupon?.title }}</td>
+                                <td class="pt-3-half">
+                                    ${{ currentCoupon?.price }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Editable table -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+
+
+
+<div class="login-wrapper">
+    <div class="image-box"> <br>
+        <h5>Coupon image will display here</h5>
+        <img alt="" class="img-thumbnail" src="{{coupon?.image}}" width="5400px" alt="Card image cap"
+        onerror="this.src='https://shalem-ins.co.il/wp-content/uploads/2020/08/placeholder.png'" width="399px" height="150px">
+</div>
+	<div class="container" id="container">
+		<div class="form-container sign-in-container">
+            <div class="form-group">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-th"></span>
+                        Create Coupon
+                    </h3>
+                </div>
+                <div style="text-align: left;">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input #titleInput="ngModel" type="text" required id="title" class="form-control" placeholder="Coupon title"
+                                [(ngModel)]="coupon.title">
+                        </div>
+                        <span class="validations" *ngIf="titleInput.errors?.required && titleInput.touched"> Enter a coupon title<br></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input #descriptionInput="ngModel" required class="form-control" id="description" type="text" placeholder="Description"
+                                [(ngModel)]="coupon.description">
+                        </div>
+                        <span class="validations" *ngIf="descriptionInput.errors?.required && descriptionInput.touched"> Enter a description<br></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input #amountInput="ngModel" type="text" required id="stock" class="form-control" placeholder="Amount of Coupons"
+                                [(ngModel)]="coupon.couponStock">
+                        </div>
+                        <span class="validations" *ngIf="amountInput.errors?.required && amountInput.touched"> Enter the amount in stock<br></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input #priceInput="ngModel" type="text" required id="price" class="form-control" placeholder="Price"
+                                [(ngModel)]="coupon.price">
+                        </div>
+                        <span class="validations" *ngIf="priceInput.errors?.required && priceInput.touched"> Enter a price<br></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input #dateInput="ngModel" type="date" required id="expiration-date" class="form-control" placeholder="Insert Expiration Date"
+                                [(ngModel)]="coupon.expirationDate">
+                        </div>
+                        <span class="validations" *ngIf="dateInput.errors?.required && dateInput.touched"> Enter an expiration date<br></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input #imageInput="ngModel" type="text" required id="image" class="form-control" placeholder="Insert image link"
+                                [(ngModel)]="coupon.image" (change)="onInputChange($event.target.value)">
+                        </div>
+                        <span class="validations" *ngIf="imageInput.errors?.required && imageInput.touched"> Enter coupon's image<br></span>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Category</label>
+                        </div>
+                        <select #categoryInput="ngModel" class="custom-select" required id="inputGroupSelect01" [(ngModel)]="coupon.category">
+                          <option selected>Choose...</option>
+                          <option value="0">Food</option>
+                          <option value="1">Electricity</option>
+                          <option value="2">Vacation</option>
+                          <option value="3">Fashion</option>
+                          <option value="4">Entertainment</option>
+                          <option value="5">Sports</option>
+                          <option value="6">Health</option>
+                        </select>
+                      </div>
+                      <span class="validations" *ngIf="categoryInput.errors?.required && categoryInput.touched"> Choose a category<br></span>
+                </div>
+                <div class="save-button">
+                    <button type="submit" (click)="createCoupon()">Create Coupon</button>
+                </div>
+                <h6 (click)="leaveForm()">Take me back</h6>
+            </div>
+        </div>
+	</div>
+</div>

@@ -1,0 +1,232 @@
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper">
+
+    <div class="row">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="mt-5 font-weight-bold text-center">Welcome to the Company's Panel</h2>
+                </div>
+            </div>
+            <div class="row mt-3 pt-3" style="background-color: #eeeeee">
+                <div class="col-md-6">
+                    <!-- Card group -->
+                    <div class="card-group">
+                        <!-- Card -->
+                        <div class="card mb-4">
+                            <!-- Card content -->
+                            <div class="card-body statistics">
+                                <!-- Title -->
+                                <h6 class="card-title">Likes:</h6>
+                                <!-- Text -->
+                                <p class="card-text blue-text"><i class="fas fa-thumbs-up fa-2x"></i><span class="ml-2"
+                                        style="font-size: 30px;">987</span>,654</p>
+                            </div>
+                            <!-- Card content -->
+                        </div>
+                        <!-- Card -->
+                        <!-- Card -->
+                        <div class="card mb-4">
+                            <!-- Card content -->
+                            <div class="card-body statistics">
+                                <!-- Title -->
+                                <h6 class="card-title">Unlikes: </h6>
+                                <!-- Text -->
+                                <p class="card-text red-text"><i class="fas fa-thumbs-down fa-2x"></i><span class="ml-2"
+                                        style="font-size: 30px;">123</span>,456</p>
+                            </div>
+                            <!-- Card content -->
+                        </div>
+                        <!-- Card -->
+                    </div>
+                    <!-- Card group -->
+                </div>
+                <div class="col-md-6">
+                    <!-- Card group -->
+                    <div class="card-group">
+                        <!-- Card -->
+                        <div class="card mb-4">
+                            <!-- Card content -->
+                            <div class="card-body statistics">
+                                <!-- Title -->
+                                <h6 class="card-title">Growth:</h6>
+                                <!-- Text -->
+                                <p class="card-text green-text"><i class="fas fa-angle-double-up fa-2x"></i><span
+                                        class="ml-2" style="font-size: 30px;">765</span>,19%</p>
+                            </div>
+                            <!-- Card content -->
+                        </div>
+                        <!-- Card -->
+
+                        <!-- Card -->
+                        <div class="card mb-4">
+
+                            <div class="card-body statistics">
+                                <button class="change-password" (click)="changePassword()">
+                                    <h6 class="card-title">Change Your Password </h6>
+                                    <i class="fas fa-lock fa-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <!-- Card content -->
+
+                        </div>
+                        <!-- Card -->
+
+                    </div>
+                    <!-- Card group -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-9">
+            <!-- Editable table -->
+            <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Coupons
+            </h3>
+            <div class="card-body">
+                <div id="table" class="table-editable">
+                    <span class="table-add float-right mb-3 mr-2"><a href="http://localhost:4200/create-coupon"
+                            class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                    <div class="float-right mr-3">
+                        <button class="table-sort" (click)="sortByPrice()"><i class="fas fa-sort fa-2x"
+                                    aria-hidden="true"></i></button>
+                    </div>
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Coupon</th>
+                                <th class="text-center">Category</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Stock</th>
+                                <th class="text-center">Expiration Date</th>
+                                <th class="text-center"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let currentCoupon of coupons">
+                                <td class="pt-3-half">
+                                    {{ currentCoupon?.title }}</td>
+                                <td class="pt-3-half">
+                                    {{ currentCoupon?.category }}</td>
+                                <td class="pt-3-half">
+                                    {{ currentCoupon?.price }}$</td>
+                                <td class="pt-3-half">
+                                    {{ currentCoupon?.couponStock }}</td>
+                                <td class="pt-3-half">
+                                    {{ currentCoupon?.expirationDate }}</td>
+                                <td>
+                                    <button class="action-button" data-toggle="modal" data-target="#myModal"><i
+                                            class="fas fa-pencil-alt fa-lg" aria-hidden="true"
+                                            (click)=[(showCoupon(currentCoupon))]></i></button>
+                                    <button class="action-button"><i class="fas fa-trash-alt fa-lg" aria-hidden="true"
+                                            (click)="removeCoupon(currentCoupon.id)"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Editable table -->
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h3 class="modal-title w-100 ml-5">Update Coupon</h3>
+                        <button type="button" class="close fas fa-times" data-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="image-box"> <br>
+                                <img alt="" class="img-thumbnail" src="{{this.updatedCoupon?.image}}"
+                                    alt="Card image cap"
+                                    onerror="this.src='https://icon2.cleanpng.com/20180605/ijl/kisspng-computer-icons-image-file-formats-no-image-5b16ff0d2414b5.0787389815282337411478.jpg'"
+                                    width="399px" height="150px">
+                            </div>
+                            <div style="margin-top:40px;">
+                                <div class="form-group">
+                                    <div class="panel-heading">
+                                    </div>
+                                    <div style="text-align: left;">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <label class="input-group-text" for="title">Title</label>
+                                                <input type="text" id="title" class="form-control" placeholder="Coupon title"
+                                                    [(ngModel)]="this.updatedCoupon.title">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <label class="input-group-text" for="description">Description</label>
+                                                <input class="form-control" id="description" type="text" placeholder="Description"
+                                                    [(ngModel)]="this.updatedCoupon.description">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <label class="input-group-text" for="amount">Amount</label>
+                                                <input type="text" id="amount" class="form-control" placeholder="Amount of Coupons"
+                                                    [(ngModel)]="this.updatedCoupon.couponStock">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <label class="input-group-text" for="price">Price</label>
+                                                <input type="text" id="price" class="form-control" placeholder="Price"
+                                                    [(ngModel)]="this.updatedCoupon.price">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <label class="input-group-text" for="date">Expires At</label>
+                                                <input type="date" id="date" class="form-control" required placeholder="Insert Expiration Date"
+                                                    [(ngModel)]="this.updatedCoupon.expirationDate">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <label class="input-group-text" for="image">Image</label>
+                                                <input type="text" id="image" class="form-control" placeholder="Insert image link"
+                                                    [(ngModel)]="this.updatedCoupon.image">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <label class="input-group-text" for="category">Category</label>
+                                                <input type="text" id="category" class="form-control" placeholder="Category"
+                                                    [(ngModel)]="this.updatedCoupon.category">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <div class="save-button">
+                            <button type="submit" class="btn btn-default"
+                                (click)="updateCoupon(this.updatedCoupon)">Save Changes</button>
+                        </div>
+                        <button type="button" class="btn btn-default" (click)="leaveForm()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
